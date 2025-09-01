@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Professional CV / Resume" />
+  <title>Your Name — CV</title>
+
+  <!-- Open Graph / SEO basics -->
+  <meta property="og:title" content="Your Name — CV" />
+  <meta property="og:description" content="Professional CV / Resume" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/" />
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📄</text></svg>">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card: #f7f7f8;
+      --text: #0f172a;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --border:#e5e7eb;
+      --chip:#eef2ff;
+    }
+    [data-theme="dark"]{
+      --bg:#0b1220;
+      --card:#0f172a;
+      --text:#e5e7eb;
+      --muted:#9aa4b2;
+      --accent:#60a5fa;
+      --border:#1f2937;
+      --chip:#0b2a4a;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text); background:var(--bg);
+    }
+    .container{ max-width: 960px; margin: 0 auto; padding: 24px; }
+    header{ display:flex; gap:24px; align-items:center; flex-wrap:wrap; margin-bottom: 16px; }
+    .avatar{ width:96px; height:96px; border-radius:50%; object-fit:cover; border:2px solid var(--border); }
+    .title{ flex:1; }
+    h1{ font-size: clamp(28px, 4vw, 40px); line-height:1.1; margin: 0 0 4px; }
+    .subtitle{ color: var(--muted); margin: 0; }
+
+    .topbar{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin: 16px 0 24px; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:12px; background:var(--card); text-decoration:none; color:var(--text); }
+    .btn:hover{ border-color: var(--accent); }
+
+    .grid{ display:grid; grid-template-columns: 1fr; gap:16px; }
+    @media (min-width: 860px){ .grid{ grid-template-columns: 2fr 1fr; } }
+
+    section{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px 18px; }
+    section h2{ font-size: 20px; margin:0 0 12px; }
+
+    .list{ display:grid; gap:12px; }
+    .item{ display:grid; gap:4px; }
+    .item .row{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .item .role{ font-weight:600; }
+    .item .org{ color: var(--muted); }
+    .item .date{ color: var(--muted); font-variant-numeric: tabular-nums; }
+    .item .desc{ margin: 2px 0 0; }
+    .item ul { margin:6px 0 0 18px; }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+    .chip{ padding:6px 10px; background:var(--chip); border:1px solid var(--border); border-radius:999px; font-size: 13px; }
+
+    .project{ border:1px dashed var(--border); border-radius:12px; padding:12px; }
+    .project .p-title{ font-weight:600; }
+    .project .p-meta{ color:var(--muted); font-size:14px; }
+
+    footer{ color:var(--muted); text-align:center; padding:24px 0; }
+
+    /* Print styles */
+    @media print{
+      .topbar, .theme-toggle { display:none !important; }
+      section{ break-inside: avoid; }
+      body{ background:#fff; }
+      a{ color: black; text-decoration: none; }
+    }
+
+    .theme-toggle{ position: fixed; right: 16px; top: 16px; z-index: 10; }
+  </style>
+  
+  <!-- Structured Data (JSON-LD) for better SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Your Name",
+    "url": "https://yourusername.github.io/",
+    "image": "https://yourusername.github.io/avatar.jpg",
+    "jobTitle": "Your Title",
+    "worksFor": {"@type": "Organization", "name": "Your Organization"},
+    "sameAs": [
+      "https://github.com/yourusername",
+      "https://www.linkedin.com/in/yourusername/",
+      "https://scholar.google.com/citations?user=xxxxxxxx"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <button class="btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓 Theme</button>
+  <main class="container">
+    <header>
+      <img class="avatar" src="https://avatars.githubusercontent.com/u/0?v=4" alt="Your headshot" />
+      <div class="title">
+        <h1>Your Name</h1>
+        <p class="subtitle">Your current role • City, Country</p>
+        <div class="chips" aria-label="Contact">
+          <a class="chip" href="mailto:you@email.com">you@email.com</a>
+          <a class="chip" href="https://github.com/yourusername">github.com/yourusername</a>
+          <a class="chip" href="https://www.linkedin.com/in/yourusername/">LinkedIn</a>
+          <a class="chip" href="https://yourusername.github.io/">yourusername.github.io</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="topbar">
+      <a class="btn" href="#" onclick="window.print();return false;">⬇️ Download PDF</a>
+      <a class="btn" href="resume.pdf">📄 Full Resume (PDF)</a>
+      <a class="btn" href="mailto:you@email.com?subject=Hello">✉️ Contact</a>
+    </div>
+
+    <div class="grid">
+      <section aria-labelledby="summary">
+        <h2 id="summary">Summary</h2>
+        <p>
+          2–3 lines highlighting your core strengths, impact, and focus. Example: Data specialist with 5+ years in ML-driven analytics across astronomy and finance. Led projects that reduced compute cost by 30% and improved model AUC by 0.07.
+        </p>
+      </section>
+
+      <section aria-labelledby="skills">
+        <h2 id="skills">Skills</h2>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Astronomy</span>
+          <span class="chip">Git</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Data Viz</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="experience">
+        <h2 id="experience">Experience</h2>
+        <div class="list">
+          <article class="item">
+            <div class="row">
+              <div>
+                <div class="role">Job Title — Team / Product</div>
+                <div class="org">Company • City, Country</div>
+              </div>
+              <div class="date">2023 — Present</div>
+            </div>
+            <p class="desc">One sentence about scope and outcomes.</p>
+            <ul>
+              <li>Quantifiable impact or responsibility (e.g., "Cut build times 28% by optimizing CI caches")</li>
+              <li>Another accomplishment with tooling/stack (Python, PyTorch, AWS)</li>
+              <li>Leadership or collaboration highlight</li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <div class="row">
+              <div>
+                <div class="role">Previous Title</div>
+                <div class="org">Organization</div>
+              </div>
+              <div class="date">2021 — 2023</div>
+            </div>
+            <ul>
+              <li>Result • Metric • How you did it</li>
+              <li>Result • Metric • How you did it</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="projects">
+        <h2 id="projects">Selected Projects</h2>
+        <div class="list">
+          <div class="project">
+            <div class="p-title">Project Name</div>
+            <div class="p-meta">GitHub • <a href="https://github.com/yourusername/repo">repo</a> • 2024</div>
+            <p>What it does, who it’s for, and a concrete outcome (stars, users, citations, speed-up, etc.).</p>
+          </div>
+          <div class="project">
+            <div class="p-title">Another Project</div>
+            <div class="p-meta">Demo • <a href="#">site</a> • 2023</div>
+            <p>Brief impact statement and tech stack.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="education">
+        <h2 id="education">Education</h2>
+        <div class="list">
+          <div class="item">
+            <div class="row">
+              <div>
+                <div class="role">M.Sc. / B.Sc. in Field</div>
+                <div class="org">University Name</div>
+              </div>
+              <div class="date">2018 — 2022</div>
+            </div>
+            <p class="desc">Thesis: "Title" • GPA 3.8/4.0 • Relevant coursework: A, B, C</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="publications">
+        <h2 id="publications">Publications</h2>
+        <ol class="list" reversed>
+          <li class="item">
+            <div class="row">
+              <div>
+                <div class="role">Surname, N., <em>You</em>, etc. "Paper Title." <span class="org">Journal</span></div>
+              </div>
+              <div class="date">2024</div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="awards">
+        <h2 id="awards">Awards & Honors</h2>
+        <ul class="list">
+          <li class="item"><div class="row"><div>Scholarship / Award Name — Organization</div><div class="date">2024</div></div></li>
+          <li class="item"><div class="row"><div>Competition / Grant — Organization</div><div class="date">2023</div></div></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="service">
+        <h2 id="service">Service & Leadership</h2>
+        <ul class="list">
+          <li class="item">Mentor, Program / Community (2022— )</li>
+          <li class="item">Organizer, Event (2021)</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="talks">
+        <h2 id="talks">Talks</h2>
+        <ul class="list">
+          <li class="item">"Talk Title" — Conference / Meetup • <span class="date">2023</span></li>
+          <li class="item">"Another Talk" — Venue • <span class="date">2022</span></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="extras">
+        <h2 id="extras">Extras</h2>
+        <div class="chips">
+          <span class="chip">Languages: EN (C1), ID (Native)</span>
+          <span class="chip">Interests: Astronomy, Games, Reading</span>
+          <span class="chip">Citizenship: ID</span>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Your Name • Last updated <time id="lastUpdated"></time>
+    </footer>
+  </main>
+
+  <script>
+    // Theme toggle & persistence
+    const root = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    btn.addEventListener('click', ()=>{
+      const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', current);
+      localStorage.setItem('theme', current);
+    });
+
+    // Footer metadata
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('lastUpdated').textContent = new Date(document.lastModified).toLocaleDateString();
+  </script>
+</body>
+</html>
